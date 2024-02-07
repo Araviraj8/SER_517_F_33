@@ -29,3 +29,7 @@ Reference Research Papers:
    Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/The_Roadmap_to_6G_AI_Empowered_Wireless_Networks.pdf
 6. Anomaly detection in 6G networks using machine learning methods.
    Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/electronics-12-03300-v2.pdf
+7. xgboostcomp.
+   Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/xgboostcomp.pdf
+8. XGBoost A Scalable Tree Boosting System.
+    Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/XGBoost%20A%20Scalable%20Tree%20Boosting%20System.pdf
