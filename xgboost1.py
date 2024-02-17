@@ -35,3 +35,16 @@ data["sDSb"].fillna("cs0", inplace=True)
 data["sTtl"].fillna(data["sTtl"].mean(), inplace=True)
 data["sHops"].fillna(data["sHops"].mean(), inplace=True)
 
+
+# Assuming 'target_column' is the name of your target column in your DataFrame
+le = LabelEncoder()
+data['Label'] = le.fit_transform(data['Label'])   # 1 is malicious, 0 is benign now
+
+data = pd.get_dummies(data, columns = ['Proto', 'sDSb', 'Cause', 'State'], dtype = 'int') 
+# print(one_hot_encoded_data)
+
+print(data['Label'].unique)
+# # Check missing values
+print(data.isnull().sum())
+# # Drop columns with too many missing values
+# data.drop('Cabin', axis=1, inplace=True)
