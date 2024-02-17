@@ -116,3 +116,38 @@ conf_matrix = confusion_matrix(y_test, y_pred_binary).ravel()
 
 print("Confusion Matrix:")
 print(conf_matrix)
+
+
+###############
+
+XGBoost (different learning rate)
+learning_rate_range = np.arange(0.01, 1, 0.05)
+test_XG = [] 
+train_XG = []
+count =0
+for lr in learning_rate_range:
+    xgb_classifier = xgb.XGBClassifier(eta = lr)
+    xgb_classifier.weights = None
+    xgb_classifier.fit(x_train, y_train)
+    #train_XG.append(xgb_classifier.score(x_train, y_train))
+    test_XG.append(xgb_classifier.score(x_test, y_test))
+    count += 1
+    print("count", count)
+    print(test_XG)
+# Line plot
+print("test xg", test_XG)
+print("train", train_XG)
+fig = plt.figure(figsize=(10, 7))
+plt.plot(learning_rate_range, train_XG, c='orange', label='Train')
+plt.plot(learning_rate_range, test_XG, c='m', label='Test')
+plt.xlabel('Learning rate')
+plt.xticks(learning_rate_range)
+plt.ylabel('Accuracy score')
+plt.ylim(0.6, 1)
+plt.legend(prop={'size': 12}, loc=3)
+plt.title('Accuracy score vs. Learning rate of XGBoost', size=14)
+plt.show()
+
+
+
+
