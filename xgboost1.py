@@ -151,3 +151,41 @@ plt.show()
 
 
 
+
+
+
+
+
+# # Resolve overfitting 
+# # new learning rate range
+
+learning_rate_range = np.arange(0.01, 0.5, 0.05)
+fig = plt.figure(figsize=(19, 17))
+idx = 1
+count = 0
+# grid search for min_child_weight
+for weight in np.arange(0, 4.5, 0.5):
+    train = []
+    test = []
+    
+    for lr in learning_rate_range:
+        xgb_classifier = xgb.XGBClassifier(eta = lr, reg_lambda=1, min_child_weight=weight)
+        xgb_classifier.weights = None
+        xgb_classifier.fit(x_train, y_train)
+        train.append(xgb_classifier.score(x_train, y_train))
+        test.append(xgb_classifier.score(x_test, y_test))
+        count += 1
+        print("count", count)
+        print(train)
+    fig.add_subplot(3, 3, idx)
+    idx += 1
+    plt.plot(learning_rate_range, train, c='orange', label='Training')
+    plt.plot(learning_rate_range, test, c='m', label='Testing')
+    plt.xlabel('Learning rate')
+    plt.xticks(learning_rate_range)
+    plt.ylabel('Accuracy score')
+    plt.ylim(0.6, 1)
+    plt.legend(prop={'size': 12}, loc=3)
+    title = "Min child weight:" + str(weight)
+    plt.title(title, size=16)
+plt.show()
