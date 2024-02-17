@@ -39,5 +39,36 @@ data = pd.get_dummies(data, columns = ['Proto', 'sDSb', 'Cause', 'State'], dtype
 print(data['Label'].unique)
 # # Check missing values
 print(data.isnull().sum())
-# # Drop columns with too many missing values
-# data.drop('Cabin', axis=1, inplace=True)
+
+
+data.head()
+print(data.shape)
+
+print(data)
+
+X = data.iloc[:, :-1]
+y = data['Label']
+
+
+# # train/test split (80/20)
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.8, random_state=42)
+
+
+
+# Initialize CatBoost classifier
+clf = CatBoostClassifier(iterations=1000,  # Number of trees (boosting iterations)
+                         learning_rate=0.1,  # Learning rate (shrinkage)
+                         depth=6,  # Depth of each tree
+                         loss_function='MultiClass',  # Loss function for classification
+                         random_seed=42)  # Random seed for reproducibility
+
+# Fit the classifier to the training data
+clf.fit(X_train, y_train, verbose=100)  # Verbose=100 prints training progress every 100 iterations
+
+# Predict on the test data
+y_pred = clf.predict(X_test)
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
