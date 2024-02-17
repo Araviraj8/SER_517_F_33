@@ -48,3 +48,71 @@ print(data['Label'].unique)
 print(data.isnull().sum())
 # # Drop columns with too many missing values
 # data.drop('Cabin', axis=1, inplace=True)
+
+
+# # Drop data with missing values 
+# data.dropna(inplace=True)
+
+# Inspect data
+data.head()
+print(data.shape)
+# Transfrom attribute
+# le = LabelEncoder()
+# data['Sex'] = le.fit_transform(data['Sex'])
+
+
+# Export DataFrame to CSV file
+#data.to_csv('processed.csv', index=False)  # Set index=False if you don't want to export the index
+
+
+# # Decide variables to use
+# X = data[['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare']]
+# y = data['Survived']
+print(data)
+
+X = data.iloc[:, :-1]
+y = data['Label']
+
+
+# # train/test split (80/20)
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.8, random_state=65)
+
+
+
+
+
+
+# # Assuming df is your DataFrame with features
+# correlation_matrix = data.corr()
+
+
+
+# # Plotting the heatmap
+# plt.figure(figsize=(10, 8))
+# sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+# plt.title('Correlation Matrix')
+# plt.show()
+
+
+
+
+
+#only accuracy- shiv
+
+model = xgb.XGBClassifier()
+model.fit(x_train, y_train)
+# make predictions for test data
+y_pred = model.predict(x_test)
+predictions = [round(value) for value in y_pred]
+# evaluate predictions
+accuracy = accuracy_score(y_test, predictions)
+print("Accuracy: %.2f%%" % (accuracy * 100.0))
+
+
+y_pred_binary = (y_pred > 0.5).astype(int)
+
+# Calculate confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred_binary).ravel()
+
+print("Confusion Matrix:")
+print(conf_matrix)
