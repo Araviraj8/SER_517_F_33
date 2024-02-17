@@ -72,3 +72,12 @@ y_pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 
+
+
+y_pred_binary = (y_pred > 0.5).astype(int)
+
+# Calculate confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred_binary).ravel()
+
+print("Confusion Matrix:")
+print(conf_matrix)
