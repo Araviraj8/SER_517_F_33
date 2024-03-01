@@ -104,3 +104,27 @@ for epoch in range(epochs):
     if epoch % 100 == 0:
         print(f"Epoch: {epoch}, Discriminator Loss: {discriminator_loss}, Generator Loss: {generator_loss}")
 
+# Generate synthetic data
+num_samples = X_test.shape[0]
+noise = np.random.normal(0, 1, (num_samples, latent_dim))
+synthetic_data = generator.predict(noise)
+
+# Train CatBoost classifier on synthetic data
+clf = CatBoostClassifier(iterations=1000, learning_rate=0.1, depth=6, loss_function='MultiClass', random_seed=42)
+clf.fit(synthetic_data, y_train, verbose=100)
+
+# Measure prediction time
+start_time = time.time()
+# Predict on the test data
+y_pred = clf.predict(X_test)
+prediction_time = time.time() - start_time
+print("Prediction Time:", prediction_time, "seconds")
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+# Calculate confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred).ravel()
+print("Confusion Matrix:")
+print(conf_matrix)
