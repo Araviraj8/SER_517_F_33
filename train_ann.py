@@ -54,3 +54,17 @@ y_tensor_train.to('cuda')
 
 # Define L2 regularization parameter (lambda)
 weight_decay = 0.001  # Adjust this parameter as needed
+
+
+
+# Load the model weights
+model = Ann()  # Assuming Ann is the class for your model
+model.to('cuda')
+model.load_state_dict(torch.load('model_weights.pth'))
+
+
+
+# Define loss function and optimizer
+criterion = nn.MSELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.01, weight_decay = weight_decay)
+#optimizer = RAdam(model.parameters(), lr=0.001)
