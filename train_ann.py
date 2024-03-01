@@ -68,3 +68,31 @@ model.load_state_dict(torch.load('model_weights.pth'))
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.01, weight_decay = weight_decay)
 #optimizer = RAdam(model.parameters(), lr=0.001)
+
+
+
+
+
+# Training loop
+start_time_train = time.time()
+
+num_epochs = 1000
+print("total time training for epochs:{num_epochs}")
+for epoch in range(num_epochs):
+    # Forward pass
+    outputs = model(X_tensor_train.to("cuda"))
+    loss = criterion(outputs, y_tensor_train.to("cuda"))
+    
+    # # L2 regularization term
+    # l2_reg = torch.tensor(0., requires_grad=True)
+    # for param in model.parameters():
+    #     l2_reg += torch.norm(param)**2
+        
+    # # Add L2 regularization term to the loss function
+    # loss += weight_decay * l2_reg
+
+    # Backward pass and optimization
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+    
