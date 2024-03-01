@@ -1,10 +1,9 @@
 import pandas as pd
+import numpy as np
+import time
 from catboost import CatBoostClassifier
-from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
-import time
-import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers, Model
 
@@ -25,6 +24,7 @@ data["sTtl"].fillna(data["sTtl"].mean(), inplace=True)
 data["sHops"].fillna(data["sHops"].mean(), inplace=True)
 
 # Encode the target variable 'Label'
+from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 data['Label'] = le.fit_transform(data['Label'])  # 1 is malicious, 0 is benign now
 
