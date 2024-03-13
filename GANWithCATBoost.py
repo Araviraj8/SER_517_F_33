@@ -93,3 +93,35 @@ for epoch in range(epochs):
         print(f'Epoch {epoch}, Discriminator Loss: {discriminator_loss}, GAN Loss: {gan_loss}')
 
 
+# Generate synthetic data
+num_synthetic_samples = 1000
+# noise = np.random.normal(0, 1, size=(num_synthetic_samples, latent_dim))
+# synthetic_data = generator.predict(noise)
+
+# Generate synthetic data
+noise = np.random.normal(0, 1, size=(num_synthetic_samples, latent_dim))
+synthetic_samples = generator.predict(noise)
+fake_labels = np.ones(num_synthetic_samples)  # Assign a label of 1 to the synthetic data
+
+# Train the classifier
+
+
+# Evaluation using downstream classification task
+classifier = CatBoostClassifier(iterations=100, learning_rate=0.1, depth=6)
+# Measure training time
+start_time = time.time()
+classifier.fit(np.concatenate([X_train, synthetic_samples]), np.concatenate([y_train, fake_labels]))
+training_time = time.time() - start_time
+print("Training Time:", training_time, "seconds")
+#classifier.fit(synthetic_data, np.zeros(num_synthetic_samples))  # Fake labels since it's synthetic data
+
+# Measure prediction time
+start_time = time.time()
+y_pred = classifier.predict(X_test)
+prediction_time = time.time() - start_time
+print("Prediction Time:", prediction_time, "seconds")
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy on synthetic data: {accuracy}')
+conf_matrix = confusion_matrix(y_test, y_pred)
+print('Confusion Matrix:')
+print(conf_matrix)
