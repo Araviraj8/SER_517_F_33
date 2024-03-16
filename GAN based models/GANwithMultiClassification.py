@@ -71,3 +71,42 @@ gan = Model(gan_input, gan_output)
 discriminator.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 gan.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
+# Train GAN
+batch_size = 64
+epochs = 100
+for epoch in range(epochs):
+    noise = np.random.normal(0, 1, size=(batch_size, latent_dim))
+    synthetic_samples = generator.predict(noise)
+    real_samples_idx = np.random.randint(0, X_train.shape[0], batch_size)
+    real_samples = X_train.iloc[real_samples_idx]  # Use iloc for indexing DataFrame by integer positions
+
+    X_combined = np.concatenate([real_samples, synthetic_samples])
+    y_combined = np.concatenate([np.ones((batch_size, 1)), np.zeros((batch_size, 1))])
+
+    discriminator_loss = discriminator.train_on_batch(X_combined, y_combined)
+
+    noise = np.random.normal(0, 1, size=(batch_size, latent_dim))
+    y_gan = np.ones((batch_size, 1))
+
+    gan_loss = gan.train_on_batch(noise, y_gan)
+
+    if epoch % 10 == 0:
+        print(f'Epoch {epoch}, Discriminator Loss: {discriminator_loss}, GAN Loss: {gan_loss}')
+
+
+# Generate synthetic data
+num_synthetic_samples = 1000
+noise = np.random.normal(0, 1, size=(num_synthetic_samples, latent_dim))
+synthetic_samples = generator.predict(noise)
+
+# Train the classifier
+from sklearn.ensemble import RandomForestClassifier
+
+classifier = RandomForestClassifier(n_estimators=100)
+classifier.fit(np.concatenate([X_train, synthetic_samples]), np.concatenate([y_train, y_train[:num_synthetic_samples]]))
+
+# Evaluation using downstream classification task
+y_pred = classifier.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy on synthetic data: {accuracy}')
+
