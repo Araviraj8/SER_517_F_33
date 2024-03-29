@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import tensorflow as tf
+from sklearn.ensemble import AdaBoostClassifier
 from tensorflow.keras import layers, Model
 from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
@@ -68,3 +69,17 @@ synthetic_data = generator.predict(noise)
 # Split data into features and target
 X = data.drop('Label', axis=1)
 y = data['Label']
+
+# Train/test split (80/20)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train AdaBoost classifier
+adaboost_classifier = AdaBoostClassifier()
+adaboost_classifier.fit(X_train, y_train)
+
+# Predict on test set
+y_pred = adaboost_classifier.predict(X_test)
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy on test set: {accuracy}")
