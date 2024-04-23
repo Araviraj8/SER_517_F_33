@@ -27,6 +27,7 @@ Operating System: Windows 11
 2) Conda should be installed with the latest version 4.3.16.
 3) Download processed datasets from the link : https://drive.google.com/drive/u/4/folders/1lE9hLSn3J51t4eKuORW64M7J5bUPTDKG
    Make sure the combined.csv and processed_multiclass2.csv are in same directory i.e. Final Models folder
+4) All the required model weights are present in the Model Weights Folder. 
 **Install conda:**
   ```shell
 pip install conda
