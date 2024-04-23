@@ -44,31 +44,9 @@ data['Label'] = le.fit_transform(data['Label'])   # 1 is malicious, 0 is benign 
 data = pd.get_dummies(data, columns = ['Proto', 'sDSb', 'Cause', 'State'], dtype = 'int') 
 # print(one_hot_encoded_data)
 
-print(data['Label'].unique)
-# # Check missing values
-print(data.isnull().sum())
-# # Drop columns with too many missing values
-# data.drop('Cabin', axis=1, inplace=True)
-
-# # Drop data with missing values 
-# data.dropna(inplace=True)
 
 # Inspect data
 data.head()
-print(data.shape)
-# Transfrom attribute
-# le = LabelEncoder()
-# data['Sex'] = le.fit_transform(data['Sex'])
-
-
-# Export DataFrame to CSV file
-#data.to_csv('processed.csv', index=False)  # Set index=False if you don't want to export the index
-
-
-# # Decide variables to use
-# X = data[['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare']]
-# y = data['Survived']
-print(data)
 
 X = data.iloc[:, :-1]
 y = data['Label']
@@ -85,20 +63,6 @@ x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.8, random_
 # # Assuming df is your DataFrame with features
 # correlation_matrix = data.corr()
 
-
-
-# # Plotting the heatmap
-# plt.figure(figsize=(10, 8))
-# sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
-# plt.title('Correlation Matrix')
-# plt.show()
-
-
-
-
-
-#only accuracy- shiv
-
 model = xgb.XGBClassifier()
 model.fit(x_train, y_train)
 # make predictions for test data
@@ -111,42 +75,12 @@ print("Accuracy: %.2f%%" % (accuracy * 100.0))
 
 y_pred_binary = (y_pred > 0.5).astype(int)
 
-# Calculate confusion matrix
-conf_matrix = confusion_matrix(y_test, y_pred_binary).ravel()
+# # Calculate confusion matrix
+# conf_matrix = confusion_matrix(y_test, y_pred_binary).ravel()
 
-print("Confusion Matrix:")
-print(conf_matrix)
+# print("Confusion Matrix:")
+# print(conf_matrix)
 
-
-###############
-
-# XGBoost (different learning rate)
-# learning_rate_range = np.arange(0.01, 1, 0.05)
-# test_XG = [] 
-# train_XG = []
-# count =0
-# for lr in learning_rate_range:
-#     xgb_classifier = xgb.XGBClassifier(eta = lr)
-#     xgb_classifier.weights = None
-#     xgb_classifier.fit(x_train, y_train)
-#     #train_XG.append(xgb_classifier.score(x_train, y_train))
-#     test_XG.append(xgb_classifier.score(x_test, y_test))
-#     count += 1
-#     print("count", count)
-#     print(test_XG)
-# # Line plot
-# print("test xg", test_XG)
-# print("train", train_XG)
-# fig = plt.figure(figsize=(10, 7))
-# plt.plot(learning_rate_range, train_XG, c='orange', label='Train')
-# plt.plot(learning_rate_range, test_XG, c='m', label='Test')
-# plt.xlabel('Learning rate')
-# plt.xticks(learning_rate_range)
-# plt.ylabel('Accuracy score')
-# plt.ylim(0.6, 1)
-# plt.legend(prop={'size': 12}, loc=3)
-# plt.title('Accuracy score vs. Learning rate of XGBoost', size=14)
-# plt.show()
 
 
 
