@@ -21,6 +21,11 @@ RAM: 8 GB DDR4
 Storage: 512 GB SSD
 Operating System: Windows 11
 
+**Install conda:**
+  ```shell
+pip install conda
+ ```
+
 **install dependencies**:
 
   ```shell
@@ -36,7 +41,6 @@ cd Final Models
  ```
 
 **For XgBoost:**
-
  ```shell
  python xgb_final.py
  ```
@@ -56,7 +60,6 @@ python Adaboost_final.py
 python ann_binary_final.py
 ```
 **For GAN Model:**
-
 ```shell
 python GAN_Binary_CatBoost.py
 ```
