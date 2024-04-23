@@ -78,6 +78,8 @@ install dependencies:
 conda env create -f environment.yml
  ```
 
+**Binary Classification**
+
 **Go to Final Models folder:**
 
 ```shell
@@ -95,7 +97,12 @@ cd Final Models
 python CatBoostFinal.py
 ```
 
-**For ANN Binary classification:**
+**For ADABoost:**
+```shell
+python Adaboost_final.py
+```
+
+**For ANN:**
 ```shell
 python ann_binary_final.py
 ```
