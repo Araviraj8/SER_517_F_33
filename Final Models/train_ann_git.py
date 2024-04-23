@@ -21,8 +21,6 @@ from torch.utils.data import TensorDataset, DataLoader
 from sklearn.metrics import f1_score, precision_score, recall_score
 
 
-
-
 def convert_tensor_to_one_hot(tensor):
     """
     Convert a tensor such that the highest value in the tensor is set to 1,
@@ -34,18 +32,14 @@ def convert_tensor_to_one_hot(tensor):
     Returns:
     torch.Tensor: Transformed tensor with highest value set to 1 and the rest set to 0.
     """
-    # Find the index of the maximum value in the tensor
+
     max_index = torch.argmax(tensor)
     
-    # Create a new tensor initialized with zeros
     result_tensor = torch.zeros_like(tensor)
     
-    # Set the value at the index of the maximum value to 1
     result_tensor[max_index] = 1
     
     return result_tensor
-
-
 
 def calculate_f1_scores(output_tensor, ground_truth_tensor):
     f1_scores = []
@@ -79,8 +73,6 @@ def split_into_columns(input_tensor):
         column_tensor = input_tensor[:, col_idx]
         column_tensors.append(column_tensor)
     return column_tensors
-
-
 
 csvpath = 'C:/Users/waghs/Desktop/ser517/processed_multiclass2.csv'
 data = pd.read_csv(csvpath, engine='python')
@@ -140,8 +132,61 @@ for epoch in range(num_epochs):
     epoch_loss = running_loss / len(train_loader.dataset)
     print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {epoch_loss:.4f}")
 
-
-
 torch.save(model.state_dict(), 'model_weights_multi_new.pth')
 
+
+
+
+# To evaluate on test dataset
+
+
+csvpath = 'C:/Users/waghs/Desktop/ser517/data_test1.csv'
+data = pd.read_csv(csvpath, engine='python')
+
+X = data.iloc[:, :-9]  # Features (selecting all columns except last 9)
+y = data.iloc[:, -9:]  # Labels (selecting last 9 columns)
+X = torch.tensor(X.values , dtype=torch.float32)
+y = torch.tensor(y.values, dtype=torch.float32)
+# y_tensor_train = y_tensor_train.reshape(-1, 9)
+
+# X.to('cpu')
+# y.to('cpu')
+# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+# X.to('cpu')
+# y.to('cpu')
+model.to('cpu')
+outputs = model(X)
+outputs = convert_to_one_hot_2d(outputs)
+outputs = split_into_columns(outputs)
+y = split_into_columns(y)
+
+print("f1 score returned first class",f1_score(outputs[0], y[0], average='macro'), "f1 score returned first class")
+print("f1 score returned first class",f1_score(outputs[1], y[1], average='macro'), "f1 score returned first class")
+print("f1 score returned first class",f1_score(outputs[2], y[2], average='macro'), "f1 score returned first class")
+print("f1 score returned first class",f1_score(outputs[3], y[3], average='macro'), "f1 score returned first class")
+print("f1 score returned first class",f1_score(outputs[4], y[4], average='macro'), "f1 score returned first class")
+print("f1 score returned first class",f1_score(outputs[5], y[5], average='macro'), "f1 score returned first class")
+print("f1 score returned first class",f1_score(outputs[6], y[6], average='macro'), "f1 score returned first class")
+print("f1 score returned first class",f1_score(outputs[7], y[7], average='macro'), "f1 score returned first class")
+print("f1 score returned first class",f1_score(outputs[8], y[8], average='macro'), "f1 score returned first class")
+
+print("precision score returned first class", precision_score(outputs[0], y[0], average='macro'))
+print("precision score returned first class", precision_score(outputs[1], y[1], average='macro'))
+print("precision score returned first class", precision_score(outputs[2], y[2], average='macro'))
+print("precision score returned first class", precision_score(outputs[3], y[3], average='macro'))
+print("precision score returned first class", precision_score(outputs[4], y[4], average='macro'))
+print("precision score returned first class", precision_score(outputs[5], y[5], average='macro'))
+print("precision score returned first class", precision_score(outputs[6], y[6], average='macro'))
+print("precision score returned first class", precision_score(outputs[7], y[7], average='macro'))
+print("precision score returned first class", precision_score(outputs[8], y[8], average='macro'))
+
+print("recall score returned 1 class",recall_score(outputs[0], y[0], average='macro'))
+print("recall score returned 2 class",recall_score(outputs[1], y[1], average='macro'))
+print("recall score returned 3 class",recall_score(outputs[2], y[2], average='macro'))
+print("recall score returned 4 class",recall_score(outputs[3], y[3], average='macro'))
+print("recall score returned 5 class",recall_score(outputs[4], y[4], average='macro'))
+print("recall score returned 6 class",recall_score(outputs[5], y[5], average='macro'))
+print("recall score returned 7 class",recall_score(outputs[6], y[6], average='macro'))
+print("recall score returned 8 class",recall_score(outputs[7], y[7], average='macro'))
+print("recall score returned 9 class",recall_score(outputs[8], y[8], average='macro'))
 
