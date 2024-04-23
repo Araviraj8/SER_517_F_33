@@ -98,6 +98,7 @@ python CatBoostFinal.py
 
 **GAN Model with CatBoost Classifier:**
 
-**Run**  $ python GAN_Binary_CatBoost.py
-
+```shell
+python GAN_Binary_CatBoost.py
+```
 
