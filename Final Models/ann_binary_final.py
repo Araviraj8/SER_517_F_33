@@ -54,7 +54,7 @@ def convert_tensor_to_one_hot(tensor):
 
 
 
-csvpath = 'C:/Users/waghs/Desktop/ser517/processed_multiclass2.csv'
+csvpath = 'C:/..../processed_multiclass2.csv'
 data = pd.read_csv(csvpath, engine='python')
 # data.drop('Label', axis = 1, inplace = True)
 
@@ -163,7 +163,7 @@ model.to(device)
 
 
 
-csvpath = 'C:/Users/waghs/Desktop/ser517/data_test1.csv'
+csvpath = 'C:/....../data_test1.csv'
 data = pd.read_csv(csvpath, engine='python')
 
 data.drop('AttackType_HTTPFlood', axis = 1, inplace = True)
