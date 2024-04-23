@@ -10,6 +10,8 @@ Vinay Kantilal Chavhan; vchavhan@asu.edu
 
 **Topic**: Detecting intrusion in softwarized 5G networks using machine learning.
 
+**Research Title** : 5G-NIDD: A Comprehensive Analysis of Network Intrusion Detection Algorithms on 5G Wireless Network Dataset
+
 **Sponsor**: Abdallah Moubayed; abdallah.moubayed@asu.edu
 
 Research Paper provided by Sponsor: 5D-NIDD: A comprehensive network Intrusion detection dataset generated over 5G Wireless network. 
