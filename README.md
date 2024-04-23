@@ -35,3 +35,11 @@ $ cd Final Models
 **For XgBoost:**
 
 **Run**  $ python xgb_final.py
+
+**For CatBoost:**
+
+**Run**  $ python CatBoostFinal.py
+
+**GAN Model with CatBoost Classifier:**
+
+**Run**  $ python GAN_Binary_CatBoost.py
