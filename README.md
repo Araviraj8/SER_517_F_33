@@ -38,7 +38,7 @@ pip install conda
 conda env create -f environment.yml
  ```
 
-**Binary Classification Models**
+**Binary Classification Models :**
 
 **Go to Final Models folder:**
 
