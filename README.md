@@ -25,13 +25,13 @@ To replicate all the results run all the files in the Final Models folder. Make 
 
 install dependencies:
 
-conda env create -f environment.yml
+$ conda env create -f environment.yml
 
 
 **Go to Final Models folder:**
 
-cd Final Models
+$ cd Final Models
 
 **For XgBoost:**
 
-**Run** python xgb_final.py
+**Run**  $ python xgb_final.py
