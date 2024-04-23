@@ -55,7 +55,7 @@ python Adaboost_final.py
 ```shell
 python ann_binary_final.py
 ```
-**For GAN Model with CatBoost Classifier:**
+**For GAN Model:**
 
 ```shell
 python GAN_Binary_CatBoost.py
