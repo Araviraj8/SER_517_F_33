@@ -15,21 +15,10 @@ Sponsor: Abdallah Moubayed; abdallah.moubayed@asu.edu
 Research Paper provided by Sponsor: 5D-NIDD: A comprehensive network Intrusion detection dataset generated over 5G Wireless network. 
 Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/Paper%20given%20by%20Sponsor.pdf
 
-Reference Research Papers:
+Hardware Used:
+Processor: Intel Core i7
+RAM: 8 GB DDR4
+Storage: 512 GB SSD
+Operating System: Windows 11
 
-1. AI and 6G Security: Opportunities and Challenges.
-   Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/AI_and_6G_Security_Opportunities_and_Challenges.pdf
-2. A_Vision_of_6G_Wireless_Systems_Applications_Trends_Technologies_and_Open_Research_Problems.
-   Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/A_Vision_of_6G_Wireless_Systems_Applications_Trends_Technologies_and_Open_Research_Problems.pdf
-3. SliceSecure_Impact_and_Detection_of_DoS_DDoS_Attacks_on_5G_Network_Slices.
-   Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/SliceSecure_Impact_and_Detection_of_DoS_DDoS_Attacks_on_5G_Network_Slices.pdf
-4. Survey_of_intrusion_detection_systems_techniques_dataset and challenges.
-   Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/Survey_of_intrusion_detection_systems_techniques_d.pdf
-5. The_Roadmap_to_6G_AI_Empowered_Wireless_Networks.
-   Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/The_Roadmap_to_6G_AI_Empowered_Wireless_Networks.pdf
-6. Anomaly detection in 6G networks using machine learning methods.
-   Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/electronics-12-03300-v2.pdf
-7. A comparative analysis of xgboost.
-   Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/xgboostcomp.pdf
-8. XGBoost A Scalable Tree Boosting System.
-    Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/XGBoost%20A%20Scalable%20Tree%20Boosting%20System.pdf
+To replicate all the results run all the files in the Final Models folder. Make sure to change the path before running the .py files.
