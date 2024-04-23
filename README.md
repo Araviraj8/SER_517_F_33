@@ -27,7 +27,7 @@ Operating System: Windows 11
 conda env create -f environment.yml
  ```
 
-**Binary Classification**
+**Binary Classification Models**
 
 **Go to Final Models folder:**
 
