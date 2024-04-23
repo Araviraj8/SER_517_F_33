@@ -68,6 +68,6 @@ python ann_binary_final.py
 
 **For GAN:**
 ```shell
-python GAN_Binary_CatBoost.py
+python GAN_Binary.py
 ```
 
