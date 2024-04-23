@@ -28,10 +28,10 @@ install dependencies:
 conda env create -f environment.yml
 
 
-Go to Final Models folder:
+**Go to Final Models folder:**
 
 cd Final Models
 
-For XgBoost:
+**For XgBoost:**
 
-Run python xgb_final.py
+**Run** python xgb_final.py
