@@ -5,7 +5,7 @@ from catboost import CatBoostClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 # Read data
-csvpath = 'C:/Users/vchavhan/Desktop/project/Combined.csv'
+csvpath = 'combined.csv'
 data = pd.read_csv(csvpath, engine='python')
 
 # Drop columns with high missing values or irrelevant for classification
