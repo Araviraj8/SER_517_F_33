@@ -21,11 +21,12 @@ RAM: 8 GB DDR4
 Storage: 512 GB SSD
 Operating System: Windows 11
 
-Pre-requisites to run the application:
+**Pre-requisites to run the application:**
 
 1) You should have python3 installed or install Pycharm IDE with version 2022.2.1 (Community Edition) or the latest.
 2) Conda should be installed with the latest version 4.3.16.
-   
+3) Download processed datasets from the link : https://drive.google.com/drive/u/4/folders/1lE9hLSn3J51t4eKuORW64M7J5bUPTDKG
+   Make sure the combined.csv and processed_multiclass2.csv are in same directory i.e. Final Models folder
 **Install conda:**
   ```shell
 pip install conda
