@@ -66,7 +66,7 @@ python Adaboost_final.py
 python ann_binary_final.py
 ```
 
-**For GAN Model:**
+**For GAN:**
 ```shell
 python GAN_Binary_CatBoost.py
 ```
