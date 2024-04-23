@@ -21,12 +21,17 @@ RAM: 8 GB DDR4
 Storage: 512 GB SSD
 Operating System: Windows 11
 
+Pre-requisites to run the application:
+
+1) You should have python3 installed or install Pycharm IDE with version 2022.2.1 (Community Edition) or the latest.
+2) Conda should be installed with the latest version 4.3.16.
+   
 **Install conda:**
   ```shell
 pip install conda
  ```
 
-**install dependencies**:
+**install dependencies using conda**:
 
   ```shell
 conda env create -f environment.yml
@@ -59,6 +64,7 @@ python Adaboost_final.py
 ```shell
 python ann_binary_final.py
 ```
+
 **For GAN Model:**
 ```shell
 python GAN_Binary_CatBoost.py
