@@ -22,3 +22,16 @@ Storage: 512 GB SSD
 Operating System: Windows 11
 
 To replicate all the results run all the files in the Final Models folder. Make sure to change the path before running the .py files.
+
+install dependencies:
+
+conda env create -f environment.yml
+
+
+Go to Final Models folder:
+
+cd Final Models
+
+For XgBoost:
+
+Run python xgb_final.py
