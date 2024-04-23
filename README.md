@@ -79,15 +79,21 @@ $ conda env create -f environment.yml
 
 **Go to Final Models folder:**
 
-$ cd Final Models
+```shell
+cd Final Models
+ ```
 
 **For XgBoost:**
 
-**Run**  $ python xgb_final.py
+ ```shell
+ python xgb_final.py
+ ```
+ 
 
-**For CatBoost:**
+```shell
+python CatBoostFinal.py
+```
 
-**Run**  $ python CatBoostFinal.py
 
 **GAN Model with CatBoost Classifier:**
 
