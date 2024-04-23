@@ -74,8 +74,9 @@ Similarly you will be able to run the remaining files to obtain the results foll
 
 install dependencies:
 
-$ conda env create -f environment.yml
-
+  ```shell
+conda env create -f environment.yml
+ ```
 
 **Go to Final Models folder:**
 
