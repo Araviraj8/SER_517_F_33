@@ -90,13 +90,16 @@ cd Final Models
  python xgb_final.py
  ```
  
-
+**For CatBoost:**
 ```shell
 python CatBoostFinal.py
 ```
 
-
-**GAN Model with CatBoost Classifier:**
+**For ANN Binary classification:**
+```shell
+python ann_binary_final.py
+```
+**For GAN Model with CatBoost Classifier:**
 
 ```shell
 python GAN_Binary_CatBoost.py
