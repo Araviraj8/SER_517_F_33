@@ -13,7 +13,7 @@ from sklearn.metrics import confusion_matrix
 
 # Read data
 #url = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv'   
-csvpath = 'C:/Users/waghs/Desktop/ser517/Combined.csv'
+csvpath = 'C:/...../Combined.csv'
 data = pd.read_csv(csvpath, engine='python')
 data.drop('sVid', axis = 1, inplace = True)
 data.drop('dTos', axis = 1, inplace = True)
