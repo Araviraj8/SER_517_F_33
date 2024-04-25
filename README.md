@@ -14,8 +14,11 @@ Vinay Kantilal Chavhan; vchavhan@asu.edu
 
 **Sponsor**: Abdallah Moubayed; abdallah.moubayed@asu.edu
 
-Research Paper provided by Sponsor: 5D-NIDD: A comprehensive network Intrusion detection dataset generated over 5G Wireless network. 
+Research Paper provided by Sponsor: 5G-NIDD: A comprehensive network Intrusion detection dataset generated over 5G Wireless network. 
 Link: https://github.com/Araviraj8/SER_517_F_33/blob/main/related%20papers/Paper%20given%20by%20Sponsor.pdf
+
+Research Paper completed by us: 5G-NIDD: A comprehensive network Intrusion detection dataset generated over 5G Wireless network.
+https://github.com/Araviraj8/SER_517_F_33/blob/main/5G_NIDD__A_Comprehensive_Network_Intrusion_Detection_Dataset_Generated_over_5G_Wireless_Network.pdf
 
 **Hardware Used**:
 Processor: Intel Core i7
